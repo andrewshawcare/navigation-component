@@ -17,7 +17,7 @@ define([], function () {
       titleElement.textContent = link.title;
 
       if (link.onNavigate instanceof Function) {
-        titleElement.onclick = link.onNavigate.bind(this, {title: link.title});
+        titleElement.onclick = link.onNavigate.bind(this, link);
       } else {
         titleElement.attributes["href"] = link.url;
       }
