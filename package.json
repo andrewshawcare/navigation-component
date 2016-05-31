@@ -1,0 +1,30 @@
+{
+  "name": "navigation-component",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine"
+  },
+  "description": "A web component for application navigation with support for history",
+  "keywords": ["navigation", "component", "html", "view"],
+  "homepage": "https://github.com/andrewshawcare/navigation-component",
+  "bugs": {
+    "url": "https://github.com/andrewshawcare/navigation-component/issues",
+    "email": "andrewshawcare@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Andrew Shaw Care <andrewshawcare@gmail.com> (https://github.com/andrewshawcare)",
+  "repository": "andrewshawcare/navigation-component",
+  "dependencies": {
+    "requirejs": "^2.2.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jsdom": "^8.2.0",
+    "amdefine": "^1.0.0"
+  },
+  "component": {
+    "data": {},
+    "dependencies": {}
+  }
+}
