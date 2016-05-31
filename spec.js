@@ -44,7 +44,7 @@ define(["./index.js"], function (NavigationComponent) {
         .querySelector(".linkCollection .link:first-child .title");
 
       var clickEvent = document.createEvent("MouseEvents");
-      clickEvent.initMouseEvent("click", true, true);
+      clickEvent.initEvent("click", true, true);
       titleElement.dispatchEvent(clickEvent);
     });
   });
