@@ -1,7 +1,10 @@
 {
   "files": [
     {"pattern": "node_modules/requirejs/require.js", "instrument": false},
-    "index.js"
+    {"pattern": "index.js", "load": false},
+    {"pattern": "bootstrap.js", "instrument": false}
   ],
-  "tests": ["spec.js"]
+  "tests": [
+    {"pattern": "spec.js", "load": false}
+  ]
 }
