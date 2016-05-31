@@ -1,5 +1,7 @@
 define([], function () {
   return function () {
-    return document.createElement("navigation");
+    var navigationElement = document.createElement("navigation");
+    navigationElement.classList.add("navigation");
+    return navigationElement;
   };
 });
