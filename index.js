@@ -15,7 +15,12 @@ define([], function () {
       var titleElement = document.createElement("a");
       titleElement.classList.add("title");
       titleElement.textContent = link.title;
-      titleElement.attributes["href"] = link.url;
+
+      if (link.onNavigate instanceof Function) {
+        titleElement.onclick = link.onNavigate.bind(this, {title: link.title});
+      } else {
+        titleElement.attributes["href"] = link.url;
+      }
       linkElement.appendChild(titleElement);
 
       linkCollectionElement.appendChild(linkElement);

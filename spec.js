@@ -9,15 +9,13 @@ define(["./index.js"], function (NavigationComponent) {
       expect(NavigationComponent().classList.contains("navigation")).toBe(true);
     });
 
-    it("Renders an ordered collection of links", function () {
+    it("renders an ordered collection of links", function () {
       var links = [
         {title: "Foo", url: "http://www.example.com/foo"},
         {title: "Bar", url: "http://www.example.com/bar"},
         {title: "Baz", url: "http://www.example.com/baz"}
       ];
-      var navigationElement = NavigationComponent({
-        links: links
-      });
+      var navigationElement = NavigationComponent({links: links});
 
       links.forEach(function (link, index) {
         var titleElement = navigationElement.querySelector(
@@ -29,6 +27,25 @@ define(["./index.js"], function (NavigationComponent) {
         expect(titleElement.textContent).toBe(link.title);
         expect(titleElement.attributes["href"]).toBe(link.url);
       });
+    });
+
+    it("optionally takes an onNavigate callback per link", function (done) {
+      var links = [
+        {
+          title: "Foo",
+          onNavigate: function (link) {
+            expect(link.title).toBe("Foo");
+            done();
+          }
+        }
+      ];
+      var navigationElement = NavigationComponent({links: links});
+      var titleElement = navigationElement
+        .querySelector(".linkCollection .link:first-child .title");
+
+      var clickEvent = document.createEvent("MouseEvents");
+      clickEvent.initMouseEvent("click", true, true);
+      titleElement.dispatchEvent(clickEvent);
     });
   });
 });
