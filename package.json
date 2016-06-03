@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine"
+    "test": "JASMINE_CONFIG_PATH=jasmine.json ./node_modules/.bin/jasmine"
   },
   "description": "A web component for application navigation with support for history",
   "keywords": ["navigation", "component", "html", "view"],
@@ -24,7 +24,13 @@
     "amdefine": "^1.0.0"
   },
   "component": {
-    "data": {},
+    "data": {
+      "links": [
+        {"title": "Foo", "url": "http://www.example.com/foo"},
+        {"title": "Bar", "url": "http://www.example.com/bar"},
+        {"title": "Baz", "url": "http://www.example.com/baz"}
+      ]
+    },
     "dependencies": {}
   }
 }
