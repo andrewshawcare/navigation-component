@@ -26,9 +26,21 @@
   "component": {
     "data": {
       "links": [
-        {"title": "Foo", "url": "http://www.example.com/foo"},
-        {"title": "Bar", "url": "http://www.example.com/bar"},
-        {"title": "Baz", "url": "http://www.example.com/baz"}
+        {
+          "id": "foo",
+          "title": "Foo",
+          "url": "http://www.example.com/foo"
+        },
+        {
+          "id": "bar",
+          "title": "Bar",
+          "url": "http://www.example.com/bar"
+        },
+        {
+          "id": "baz",
+          "title": "Baz",
+          "url": "http://www.example.com/baz"
+        }
       ]
     },
     "dependencies": {}

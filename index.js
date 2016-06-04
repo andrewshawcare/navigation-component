@@ -1,4 +1,4 @@
-define([], function () {
+define(["node_modules/array-component/index"], function (ArrayComponent) {
   return function (args) {
     var args = args || {};
     var links = args.links || [];
@@ -6,25 +6,20 @@ define([], function () {
     var navigationElement = document.createElement("navigation");
     navigationElement.classList.add("navigation");
 
-    var linkCollectionElement = document.createElement("ol");
-    linkCollectionElement.classList.add("linkCollection");
-    links.forEach(function (link) {
-      var linkElement = document.createElement("li");
-      linkElement.classList.add("link");
-
-      var titleElement = document.createElement("a");
-      titleElement.classList.add("title");
-      titleElement.textContent = link.title;
-
-      if (link.onNavigate instanceof Function) {
-        titleElement.onclick = link.onNavigate.bind(this, link);
-      } else {
-        titleElement.attributes["href"] = link.url;
+    var linkCollectionElement = ArrayComponent({
+      array: links,
+      ValueComponent: function (args) {
+        var args = args || {};
+        var link = args.value || {};
+        var linkElement = document.createElement("a");
+        linkElement.classList.add("link");
+        linkElement.dataset.id = link.id;
+        linkElement.textContent = link.title;
+        linkElement.href = link.url;
+        return linkElement;
       }
-      linkElement.appendChild(titleElement);
-
-      linkCollectionElement.appendChild(linkElement);
     });
+    linkCollectionElement.classList.add("link");
     navigationElement.appendChild(linkCollectionElement);
 
     return navigationElement;
