@@ -20,7 +20,7 @@
     "array-component": "andrewshawcare/array-component"
   },
   "devDependencies": {
-    "jasmine": "^2.4.1",
+    "jasmine": "^3.6.1",
     "jsdom": "^8.2.0"
   },
   "component": {
